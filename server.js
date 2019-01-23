@@ -5,7 +5,7 @@ const mongoURL = require("./config/config").mongodb.dbURI
 const mongoose = require("mongoose")
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.set("views", "./views")
 app.set("view engine", "ejs")
