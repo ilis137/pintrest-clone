@@ -37,7 +37,7 @@ passport.deserializeUser((obj, done) => {
 });
 
 
-
+app.use(require('express-session')({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true, maxAge: 24 * 60 * 1000 }));
 app.use(cors())
 app.use(express.static(__dirname + "/public"))
 app.use(bodyParser.urlencoded({ extended: true }))
