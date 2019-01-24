@@ -3,11 +3,13 @@ const ejs = require("ejs")
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const morgan = require("morgan")
-const twitterStatergy = require("passport-twitter").Statergy
+const twitterStrategy = require("passport-twitter").Strategy
+const passport = require("passport")
+const cors = require("cors")
 
 
 const apiController = require("./controller/apiController")
-const twitterKeys = require("./config/config").twitterKeys
+const twitterKeys = require("./config/config").TwitterKeys
 const mongoURL = require("./config/config").mongodb.dbURI
 
 
@@ -18,11 +20,23 @@ const port = process.env.PORT || 3000
 app.set("views", "./views")
 app.set("view engine", "ejs")
 
-passport.use(new twitterStatergy({
-    consumerKey: twitterKeys.consumer_key
-    consumerSecret: twitterKeys.consumer_secret
+passport.use(new twitterStrategy({
+    consumerKey: twitterKeys.consumer_key,
+    consumerSecret: twitterKeys.consumer_secret,
     callbackURL: "https://quiet-scrubland-22973.herokuapp.com/login/auth/twitter/callback"
+}, (token, tokenSecret, profile, done) => {
+    return done(null, profile)
 }))
+
+passport.serializeUser((user, done) => {
+    done(null, user);
+});
+
+passport.deserializeUser((obj, done) => {
+    done(null, obj);
+});
+
+
 
 app.use(cors())
 app.use(express.static(__dirname + "/public"))
@@ -48,6 +62,12 @@ app.get("/login/auth/twitter", passport.authenticate('twitter'))
 
 app.get("/login/auth/twitter/callback", passport.authenticate('twitter', { failureRedirect: '/login' }), (req, res) => {
     res.redirect("/profile")
+})
+app.get("/profile", (req, res) => {
+    res.send("<h1>profile</h1>")
+})
+app.get("/login", (req, res) => {
+    res.send("<h1>login</h1>")
 })
 app.listen(port, () => {
     console.log(`server is listening at ${port}`)
