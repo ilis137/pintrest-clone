@@ -54,6 +54,7 @@ mongoose.connect(mongoURL, { useNewUrlParser: true }, () => {
 })
 
 apiController(app)
+
 app.get("/", (req, res) => {
     res.render("login")
 })
@@ -61,9 +62,7 @@ app.get("/", (req, res) => {
 app.get("/login/auth/twitter", passport.authenticate('twitter'))
 
 app.get("/login/auth/twitter/callback", passport.authenticate('twitter', { successRedirect: "/profile", failureRedirect: '/login' }))
-app.get("/profile", (req, res) => {
-    res.send("<h1>profile</h1>")
-})
+
 app.get("/login", (req, res) => {
     res.send("<h1>login</h1>")
 })
