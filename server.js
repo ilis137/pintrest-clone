@@ -60,9 +60,7 @@ app.get("/", (req, res) => {
 
 app.get("/login/auth/twitter", passport.authenticate('twitter'))
 
-app.get("/login/auth/twitter/callback", passport.authenticate('twitter', { failureRedirect: '/login' }), (req, res) => {
-    res.redirect("/profile")
-})
+app.get("/login/auth/twitter/callback", passport.authenticate('twitter', { successRedirect: "/profile", failureRedirect: '/login' }))
 app.get("/profile", (req, res) => {
     res.send("<h1>profile</h1>")
 })
