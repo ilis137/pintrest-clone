@@ -56,7 +56,7 @@ mongoose.connect(mongoURL, { useNewUrlParser: true }, () => {
 apiController(app)
 
 app.get("/", (req, res) => {
-    res.render("login")
+    res.sendFile("login")
 })
 
 app.get("/login/auth/twitter", passport.authenticate('twitter'))
