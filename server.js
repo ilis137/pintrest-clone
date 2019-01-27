@@ -7,7 +7,7 @@ const twitterStrategy = require("passport-twitter").Strategy
 const passport = require("passport")
 const cors = require("cors")
 
-
+const Image = require("../models/imageModel")
 const apiController = require("./controller/apiController")
 const twitterKeys = require("./config/config").TwitterKeys
 const mongoURL = require("./config/config").mongodb.dbURI
