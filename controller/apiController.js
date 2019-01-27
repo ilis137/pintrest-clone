@@ -3,7 +3,7 @@ const bodyParser = require("body-parser")
 module.exports = (app) => {
     app.get("/", (req, res) => {
         Image.find({}).then(images => {
-            res.render("index", {
+            res.render("home", {
                 images: images,
                 user: req.user
             })
