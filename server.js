@@ -56,7 +56,7 @@ mongoose.connect(mongoURL, { useNewUrlParser: true }, () => {
 apiController(app)
 
 app.get("/", (req, res) => {
-    res.sendFile("login")
+    res.render("home")
 })
 
 app.get("/login/auth/twitter", passport.authenticate('twitter'))
@@ -64,7 +64,7 @@ app.get("/login/auth/twitter", passport.authenticate('twitter'))
 app.get("/login/auth/twitter/callback", passport.authenticate('twitter', { successRedirect: "/profile", failureRedirect: '/login' }))
 
 app.get("/login", (req, res) => {
-    res.send("<h1>login</h1>")
+    res.sendFile("login")
 })
 app.listen(port, () => {
     console.log(`server is listening at ${port}`)
