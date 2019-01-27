@@ -56,13 +56,13 @@ mongoose.connect(mongoURL, { useNewUrlParser: true }, () => {
 apiController(app)
 
 app.get("/", (req, res) => {
-    Image.find({}).then(images => {
-        res.render("home", {
-            images: images,
-            user: req.user
-        })
-    }).catch(err => { throw (err) })
-
+    // Image.find({}).then(images => {
+    //     res.render("home", {
+    //         images: images,
+    //         user: req.user
+    //     })
+    // }).catch(err => { throw (err) })
+    res.send("<h1>Home</h1>")
 })
 
 app.get("/login/auth/twitter", passport.authenticate('twitter'))
