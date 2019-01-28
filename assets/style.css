@@ -1,0 +1,57 @@
+body {
+    padding: 50px;
+}
+
+.navbar {
+    background: #C92228;
+}
+
+.thumbnail {
+    float: left;
+    height: 250px;
+    width: 25%;
+    position: relative
+}
+
+.img-thumbnail {
+    max-height: 180px
+}
+
+.likes {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.user {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+}
+
+.home {
+    width: 20%
+}
+
+@media (max-width: 480px) {
+    .thumbnail,
+    .home {
+        width: 50%;
+    }
+}
+
+
+/* .fa-bookmark {
+    top: 6px;
+    position: absolute;
+    right: 8px;
+    color: #bd081c;
+} */
+
+.red {
+    color: #bd081c;
+}
+
+.fa:hover {
+    opacity: 0.8;
+}
