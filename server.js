@@ -39,7 +39,7 @@ passport.deserializeUser((obj, done) => {
 
 app.use(require('express-session')({ secret: "hsdfgmsh234sd", resave: true, saveUninitialized: true, maxAge: 24 * 60 * 1000 }));
 app.use(cors())
-app.use(express.static(path.join(__dirname, "/public")))
+app.use(express.static(path.join(__dirname, "/public/")))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(morgan("combined"))
@@ -70,7 +70,7 @@ app.get("/login/auth/twitter", passport.authenticate('twitter'))
 app.get("/login/auth/twitter/callback", passport.authenticate('twitter', { successRedirect: "/profile", failureRedirect: '/login' }))
 
 app.get("/login", (req, res) => {
-    res.sendFile("public/login.html")
+    res.sendFile("login.html")
 })
 app.listen(port, () => {
     console.log(`server is listening at ${port}`)
