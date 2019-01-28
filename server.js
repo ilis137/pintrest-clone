@@ -6,7 +6,7 @@ const morgan = require("morgan")
 const twitterStrategy = require("passport-twitter").Strategy
 const passport = require("passport")
 const cors = require("cors")
-
+const path = require("path")
 const Image = require("./models/imageModel")
 const apiController = require("./controller/apiController")
 const twitterKeys = require("./config/config").TwitterKeys
