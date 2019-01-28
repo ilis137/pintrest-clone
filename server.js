@@ -70,7 +70,7 @@ app.get("/login/auth/twitter", passport.authenticate('twitter'))
 app.get("/login/auth/twitter/callback", passport.authenticate('twitter', { successRedirect: "/profile", failureRedirect: '/login' }))
 
 app.get("/login", (req, res) => {
-    res.sendFile("login.html")
+    res.sendFile("login.html", { root: __dirname + "/public/" })
 })
 app.listen(port, () => {
     console.log(`server is listening at ${port}`)
