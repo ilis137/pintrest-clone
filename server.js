@@ -39,7 +39,7 @@ passport.deserializeUser((obj, done) => {
 
 app.use(require('express-session')({ secret: "hsdfgmsh234sd", resave: true, saveUninitialized: true, maxAge: 24 * 60 * 1000 }));
 app.use(cors())
-app.use(express.static(path.join(__dirname, "/public/")))
+app.use(express.static(__dirname, "/public/"))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(morgan("combined"))
