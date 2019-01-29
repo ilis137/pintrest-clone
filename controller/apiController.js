@@ -19,7 +19,7 @@ module.exports = (app) => {
         }).catch(err => { throw (err) })
     })
     app.post("/profile", (req, res) => {
-        console.log(req.files.filename)
+
         var newImage = Image({
             username: req.user.username,
             title: req.body.title,
