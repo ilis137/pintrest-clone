@@ -90,14 +90,14 @@ body {
   </div>
 </nav>
 <div class="container-fluid">
-<p>
+<!--<p>
 ID:<%= user.id %><br/>
 username:<%= user.username %><br/>
 Name:<%= user.displayname%><br/>
 <% if(user.emails){%>
 Email:<%= user.emails[0].value%>
 <%}%>
-</p>
+</p>-->
 <div class="row">
 <div class="col-xs-12 col-md-4">
 <div class="jumbotron">
@@ -110,7 +110,7 @@ Email:<%= user.emails[0].value%>
             <span class="input-group-addon" id="basic-addon3">https://</span>
             <input type="url" name="imageLink" class="form-control" id="basic-url" required>
           </div>
-          <button id="submit" type="submit" class="btn btn-default">Submit</button>
+          <button id="submit" type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
 </div>
