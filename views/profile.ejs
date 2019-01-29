@@ -123,8 +123,8 @@ Email:<%= user.emails[0].value%>
 <% if(user){if(images[i].likedBy.includes(user.username)){ liked = "red" }} %>
 <figure class="thumbnail" >
 
-<i class="fa fa-times" id="<% images[i]._id %>" aria-hidden="true">
-<img class="thumbnail_image" src="<% images[i].imagelink %>" alt="<% images[i].title %>">
+<i class="fa fa-times" id="<% images[i]._id %>" aria-hidden="true"></i>
+<img class="thumbnail_image" src="<% images[i].imagelink %>" alt="<% images[i].title %>"/>
 
 <figcaption>
 <div class="user">
