@@ -24,8 +24,8 @@ module.exports = (app) => {
             username: req.user.username,
             title: req.body.title,
             imageLink: req.body.imageLink,
-            likes: 1,
-            likedBy: [req.user.username]
+            likes: 0,
+            likedBy: []
         });
         newImage.save().then(() => redirect("/profile"))
             .catch((err) => { throw (err) })
