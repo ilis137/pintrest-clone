@@ -12,6 +12,7 @@ module.exports = (app) => {
     app.get("/profile", require('connect-ensure-login').ensureLoggedIn(), (req, res) => {
 
         Image.find({ "username": req.user.username }).then(images => {
+            console.log(images)
             res.render("profile", {
                 images: images,
                 user: req.user
