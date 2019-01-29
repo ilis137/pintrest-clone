@@ -27,7 +27,7 @@ module.exports = (app) => {
             likes: 0,
             likedBy: []
         });
-        newImage.save().then(() => redirect("/profile"))
+        newImage.save().then(() => res.redirect("/profile"))
             .catch((err) => { throw (err) })
     })
 
