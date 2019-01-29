@@ -33,7 +33,7 @@ module.exports = (app) => {
 
     app.delete("/profile/:id", (req, res) => {
         Image.findByIdAndRemove(req.params.id).then(() => {
-            res.redirect("/")
+            res.redirect("/profile")
         }).catch(err => {
             throw (err)
         })
