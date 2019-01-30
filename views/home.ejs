@@ -138,28 +138,28 @@ body {
 $(function(){
      var user = "<%= (user) ? user.username : false %>" ;
       if(user !== "false"){
-     $('.fa-retweet').on('click', function(){
-          var id = $(this).attr('id');
-          $.ajax({
-            url: '/save',
-            type: 'POST',
-            data: {id: id},     
-            complete: function(){
-              window.location.assign('/profile');
-            }
-          });
-        });
-        $('.fa-heart').on('click', function(){
-          var id = $(this).attr('id');
-          $.ajax({
-            url: '/like',
-            type: 'POST',
-            data: {id: id},
-            complete: function(){
-              window.location.assign('/');
-            }
-          });
-        });
+  $(".fa-bookmark").click(function(e){
+     $.ajax({
+      url:"https://quiet-scrubland-22973.herokuapp.com/save",
+      type:"POST",
+      data:{
+              id:$(this).attr('id')
+           },
+      complete:window.location.assign("/profile")
+    })
+  })
+  $(".fa-heart").click(function(e){
+    $.ajax({
+      url:"https://quiet-scrubland-22973.herokuapp.com/like?",
+      type:"POST",
+      data:{
+              id:$(this).attr('id')
+           },
+      //complete:window.location.assign("/")
+    }).done(function(){
+
+    })
+  })
 }
 })
 
