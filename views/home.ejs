@@ -150,14 +150,12 @@ $(function(){
   })
   $(".fa-heart").click(function(e){
     $.ajax({
-      url:"https://quiet-scrubland-22973.herokuapp.com/like",
+      url:"https://quiet-scrubland-22973.herokuapp.com/like?id="+$(this).attr('id'),
       type:"POST",
-      data:{
-              id:$(this).attr('id')
-           },
+     
       //complete:window.location.assign("/")
     }).done(function(){
-        
+
     })
   })
 }
