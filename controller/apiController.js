@@ -41,7 +41,7 @@ module.exports = (app) => {
     })
 
     app.post("/like", (req, res) => {
-        console.log(req.body.id)
+        console.log(req.body)
         Image.findById(req.body.id).then((elem) => {
             if (elem.likedBy.includes(req.user.username)) {
 
