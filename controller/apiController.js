@@ -64,6 +64,7 @@ module.exports = (app) => {
 
     })
     app.post("/save", (req, res) => {
+        console.log(req.body.id)
         Image.findById(req.body.id).then((originalImage) => {
             var retweetImage = Image({
                 username: req.user.username,
