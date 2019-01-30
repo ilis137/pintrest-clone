@@ -43,7 +43,11 @@ module.exports = (app) => {
     app.post("/like", (req, res) => {
         Image.findById(req.body.id).then((elem) => {
             if (elem.likedBy.includes(req.user.username)) {
+
                 Image.findByIdAndUpdate(req.body.id, { $inc: { "likes": 1 }, $push: { "likedBy": req.user.username } }, { new: true }).then(() => {
+
+                    console.log(req.body.id)
+
                     res.redirect('/');
                 }).catch(err => {
                     throw (err)
