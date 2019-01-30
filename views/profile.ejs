@@ -151,7 +151,7 @@ $(function(){
         $.ajax({
             url:"https://quiet-scrubland-22973.herokuapp.com/profile/"+$(this).attr("id"),
             method:"DELETE",
-            complete:window.location.assign("/profile")
+            complete:function(){window.location.assign("/profile")}
         })
     })
 })
