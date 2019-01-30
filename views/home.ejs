@@ -145,7 +145,7 @@ $(function(){
       data:{
               id:$(this).attr('id')
            },
-      complete:window.location.assign("/profile")
+      complete:function(){window.location.assign("/profile")}
     })
   })
   $(".fa-heart").click(function(e){
@@ -155,7 +155,7 @@ $(function(){
       data:{
               id:$(this).attr('id')
            },
-      //complete:window.location.assign("/")
+      complete:function(){window.location.assign("/")}
     }).done(function(){
 
     })
