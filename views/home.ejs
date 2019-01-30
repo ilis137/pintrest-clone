@@ -136,9 +136,11 @@ body {
 </main>
 <script>
 $(function(){
+     var user = "<%= (user) ? user.username : false %>" ;
+      if(user !== "false"){
   $(".fa-bookmark").click(function(e){
      $.ajax({
-      url:"/save",
+      url:"https://quiet-scrubland-22973.herokuapp.com/save",
       type:"POST",
       data:{
               id:$(this).attr('id')
@@ -148,14 +150,15 @@ $(function(){
   })
   $(".fa-heart").click(function(e){
     $.ajax({
-      url:"/like",
+      url:"https://quiet-scrubland-22973.herokuapp.com/like",
       type:"POST",
       data:{
               id:$(this).attr('id')
            },
-      //complete:window.location.assign("/")
+      complete:window.location.assign("/")
     })
   })
+}
 })
 
 </script>
