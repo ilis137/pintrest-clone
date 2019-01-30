@@ -123,8 +123,9 @@ body {
             </div>
             <p class="likes">
               <i id="<%= images[i]._id%>" class="fas fa-heart <%= liked %>"></i>
+                  <%= images[i].likes %>
               <i id="<%= images[i]._id%>" class="far fa-bookmark"></i>
-              <%= images[i].likes %>
+          
             </p>
         </figcaption>
   </figure>
