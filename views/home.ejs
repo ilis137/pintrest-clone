@@ -149,6 +149,7 @@ $(function(){
     })
   })
   $(".fa-heart").click(function(e){
+      console.log("like clicked")
     $.ajax({
       url:"https://quiet-scrubland-22973.herokuapp.com/like?id="+$(this).attr('id'),
       type:"POST",
