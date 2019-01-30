@@ -12,7 +12,7 @@ module.exports = (app) => {
     app.get("/profile", require('connect-ensure-login').ensureLoggedIn(), (req, res) => {
 
         Image.find({ "username": req.user.username }).then(images => {
-            console.log(images)
+
             res.render("profile", {
                 images: images,
                 user: req.user
@@ -47,7 +47,7 @@ module.exports = (app) => {
 
                 Image.findByIdAndUpdate(req.body.id, { $inc: { "likes": 1 }, $push: { "likedBy": req.user.username } }, { new: true }).then(() => {
 
-                    console.log(req.body.id)
+
 
                     res.redirect('/');
                 }).catch(err => {
@@ -65,7 +65,7 @@ module.exports = (app) => {
 
     })
     app.post("/save", (req, res) => {
-        console.log(req.user)
+
         Image.findById(req.body.id).then((originalImage) => {
             var retweetImage = Image({
                 username: req.user.username,
