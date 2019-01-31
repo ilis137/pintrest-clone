@@ -28,8 +28,8 @@ body {
     position: relative
 }
 
-.img-thumbnail {
-    
+.thumbnail-image {
+    max-height: 180px
 }
 
 .likes {
@@ -118,7 +118,7 @@ body {
 <figure class="thumbnail img-thumbnail" >
 
 <i class="fa fa-times" id="<%= images[i]._id %>" aria-hidden="true"></i>
-<img class="img-thumbnail" src="<%= images[i].imageLink %>" alt="<%= images[i].title %>"/>
+<img class="thumbnail-image " src="<%= images[i].imageLink %>" alt="<%= images[i].title %>"/>
 
 <figcaption>
 <div class="user">
