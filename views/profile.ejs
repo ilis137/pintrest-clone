@@ -115,7 +115,7 @@ body {
 <% for(var i=images.length-1;i>=0;i--){%>
   <% var liked = ""; %>
 <% if(user){if(images[i].likedBy.includes(user.username)){ liked = "red" }} %>
-<figure class="thumbnail" >
+<figure class="thumbnail img-thumbnail" >
 
 <i class="fa fa-times" id="<%= images[i]._id %>" aria-hidden="true"></i>
 <img class="img-thumbnail" src="<%= images[i].imageLink %>" alt="<%= images[i].title %>"/>
